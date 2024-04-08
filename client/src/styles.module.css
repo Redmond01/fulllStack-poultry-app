@@ -1,0 +1,128 @@
+.section_one {
+    width: 24%;
+    height: 90%;
+    border-radius: 10%;
+    position: absolute;
+    top: 0%;
+    animation-name: section_one;
+    animation-duration: 2s;
+}
+
+@keyframes section_one {
+    from {
+        top: 10%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+.section_one_Tablet {
+    width: 24%;
+    height: 60%;
+    border-radius: 10%;
+    position: absolute;
+    top: 0%;
+    animation-name: section_one_Tablet;
+    animation-duration: 2s;
+}
+
+@keyframes section_one_Tablet {
+    from {
+        top: 10%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+.items {
+    width: 70%;
+    height: auto;
+}
+
+.items:hover {
+    transition: all;
+    transition-duration: .5s;
+    transform: rotateY(30deg);
+}
+
+.Truereciept {
+    width: 50svw;
+    height: 70svh;
+    border: 1px solid black;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    animation-name: receiptOn;
+    animation-duration: .5s;
+    background-color: grey;
+    line-height: 10%;
+}
+
+@keyframes receiptOn {
+    from {
+        top: -100%;
+        left: 25%;
+    }
+
+    to {
+        top: 10%;
+        left: 25%
+    }
+}
+
+.mobileSideBarOn {
+    top: 0;
+    right: 0%;
+    z-index: 999;
+    width: 40%;
+    height: 50svh;
+    transition: all;
+    transition-duration: .5s;
+    transition: ease;
+    position: absolute;
+    animation-duration: .5s;
+    animation-name: mobileSideBarOn;
+}
+
+.mobileSideBarOff {
+    top: 0;
+    right: -100%;
+    z-index: 999;
+    width: 40%;
+    height: 50svh;
+    transition: all;
+    transition-duration: .5s;
+    transition: ease;
+    position: fixed;
+    animation-duration: .5s;
+    animation-name: mobileSideBarOff;
+}
+
+@keyframes mobileSideBarOn {
+    from {
+        top: 0%;
+        right: -100%
+    }
+
+    to {
+        top: 0%;
+        right: 0%;
+    }
+}
+
+@keyframes mobileSideBarOff {
+
+    from {
+        top: 0%;
+        right: 0%;
+    }
+
+    to {
+        top: 0%;
+        right: -100%
+    }
+}
