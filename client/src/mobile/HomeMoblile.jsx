@@ -31,7 +31,7 @@ const HomeMbobile = () => {
     <div className='sm:block md:hidden lg:hidden'>
       <div className='w-full h-[196%vh] bg-whites relative'>
         <div className='w-full h-[10svh] bg-whites flex justify-between items-center px-[2rem]'>
-          <Link to={'/'} className='w-[90%]' onClick={function(){dispatch(updateMobileSideBar(!sideBar))}}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
+          <Link to={'/'} className='w-[90%]'> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
           <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
         </div>
         <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} bg-slate-400`}>
