@@ -29,33 +29,33 @@ const HomeMbobile = () => {
   }, [])
   return (
     <div className='sm:block md:hidden lg:hidden'>
-      <div className='w-full h-[200svh] bg-whites relative'>
+      <div className='w-full h-[196%vh] bg-whites relative'>
         <div className='w-full h-[10svh] bg-whites flex justify-between items-center px-[2rem]'>
           <img src={Logo} alt="img" className='w-[10%] h-auto' />
           <FaAlignJustify className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
         </div>
-        <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} transition-all duration-500 bg-slate-400`}>
+        <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} bg-slate-400`}>
           <div className='w-full h-[20%] flex justify-end items-center p-2'>
             <FaTimes className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
           </div>
           <div className='w-full h-[80%] flex flex-col justify-center items-center gap-4 bg-slate-400'>
-            <Link to={'/'}>  <div className='w-full h-[24%] flex justify-center items-center'>
+            <Link to={'/'}>  <div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> home</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/marketplace'}> <div className='w-full h-[24%] flex justify-center items-center'>
+            <Link to={'/marketplace'}> <div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> marketplace</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/service'}><div className='w-full h-[24%] flex justify-center items-center'>
+            <Link to={'/service'}><div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> services</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/about'}> <div className='w-full h-[24%] flex justify-center items-start'>
+            <Link to={'/about'}> <div className='w-full h-full flex justify-center items-start'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> about us</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/login'}> <div className='w-full h-[24%] flex justify-center items-start'>
+            <Link to={'/login'}> <div className='w-full h-full flex justify-center items-start'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> login</h3>
             </div></Link>
           </div>
@@ -72,7 +72,7 @@ const HomeMbobile = () => {
                 velit mollit. Exercitation veniam consequat.</h3>
             </div>
             <Link to={'/marketplace'}><div className='w-full h-[15%] px-[2rem] flex items-center'>
-              <h3 className='w-[20svw] h-[50%] bg-brown text-whites rounded-full flex justify-center items-center text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-[500] '>view store</h3>
+              <h3 className='w-[20svw] h-[50%] bg-brown text-whites rounded-full flex justify-center items-center text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-[500]' onClick={function(){dispatch(updateMobileSideBar(!sideBar))}}>view store</h3>
             </div></Link>
           </div>
         </div>
@@ -121,7 +121,7 @@ const HomeMbobile = () => {
               <h3 className='text-[calc(1px_+_2.0svw_+_2.0svh)] font-default font-[700] capitalize'>fresh egg and hen farm</h3>
               <h3 className='w-[70%] text-slate-500 text-[calc(1px_+_.4svw_+_.4svh)] capitalize font-default font-[400]'>Amet minim mollit non deserunt ullamco est sit aliqua
                 dolor do amet sint. Velit officia consequat..</h3>
-              <Link to={'/marketplace'} className='w-[15svw] h-[3svh] rounded-full flex justify-center items-center bg-brown'>
+              <Link to={'/marketplace'} className='w-[15svw] h-[3svh] rounded-full flex justify-center items-center bg-brown'  onClick={function(){dispatch(updateMobileSideBar(!sideBar))}}>
                 <h3 className='text-[calc(1px_+_.6svw_+_.6svh)] capitalize font-default font-[500] text-white'>view store</h3>
               </Link>
             </div>
@@ -148,11 +148,32 @@ const HomeMbobile = () => {
             </div>
           </div>
         </div>
-        <footer className='w-full h-[20svh] border border-green-600 bg-brown'>
-          <div className='w-full h-[10%] border border-black flex justify-center items-center'>
+        <footer className='w-full h-[20svh]  bg-lightBrown'>
+          <div className='w-full h-[10%]  flex justify-center items-center'>
             <hr className='border-2 border-whites w-[90%]' />
           </div>
-          <div className='w-full h-[90%] border border-black'></div>
+          <div className='w-full h-[90%] flex'>
+            <div className='w-[40%] h-full border border-white flex justify-center items-center'>
+              <img src={Logo} alt="img" className='w-[70%] h-auto' />
+            </div>
+            <div className='w-[60%] h-full border border-white'>
+              <div className='w-full h-[32%] border border-white'>
+                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+              </div>
+              <div className='w-full h-[32%] border border-white'>
+                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+              </div>
+              <div className='w-full h-[32%] border border-white'>
+                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+              </div>
+            </div>
+          </div>
         </footer>
       </div>
     </div>

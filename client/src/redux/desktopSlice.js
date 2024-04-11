@@ -9,7 +9,7 @@ const desktopSlice = createSlice({
         reciept:false,
         userCredentials:{},
         signInOrSignUp:true,
-        // mobileSideBar:true
+        mobileSideBar:false
     },
     reducers: {
         setSecionOne: function (state, action) {

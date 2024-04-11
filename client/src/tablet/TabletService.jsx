@@ -221,11 +221,49 @@ const TabletService = () => {
                     </div>
                 </div>
 
-                <footer className='w-full h-[20svh] border border-green-600 bg-brown'>
-                    <div className='w-full h-[10%] border border-black flex justify-center items-center'>
+                <footer className='w-full h-[20svh] bg-lightBrown'>
+                    <div className='w-full h-[10%] flex justify-center items-center'>
                         <hr className='border-2 border-whites w-[90%]' />
                     </div>
-                    <div className='w-full h-[90%] border border-black'></div>
+                    <div className='w-full h-[90%]  flex'>
+                        <div className='w-[30%] flex justify-center items-center'>
+                            <img src={Logo} alt="" className='w-[50%] h-auto' />
+                        </div>
+                        <div className='w-[70%]'>
+                            <div className='w-full h-[20%] flex justify-center items-center '>
+                                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] uppercase font-[600] text-black'>our office adresses</h3>
+                            </div>
+                            <div className='w-full h-[80%] flex justify-center items-center gap-3'>
+                                <div className='w-[32%] h-full'>
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] uppercase font-[600] text-black text-center'>head office</h3>
+                                    <div className='w-full h-[10%]'></div>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_5.svh)] capitalize font-[600] text-black text-center'>Address</h3>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_.5svh)] capitalize font-[600] text-black '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                                    <br />
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>tel phone</h3>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_.5svh)] capitalize font-[600] text-black text-center'>09011144551, 09122788372</h3>
+                                </div>
+                                <div className='w-[32%] h-full'>
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] uppercase font-[600] text-black text-center'>branch office</h3>
+                                    <div className='w-full h-[10%]'></div>
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>Address</h3>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_.5svh)] capitalize font-[600] text-black '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                                    <br />
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>tel phone</h3>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_.5svh)] capitalize font-[600] text-black text-center'>09011144551, 09122788372</h3>
+                                </div>
+                                <div className='w-[32%] h-full'>
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] uppercase font-[600] text-black text-center'>branch office</h3>
+                                    <div className='w-full h-[10%]'></div>
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>Address</h3>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_.5svh)] capitalize font-[600] text-black '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                                    <br />
+                                    <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>tel phone</h3>
+                                    <h3 className='text-[calc(1px_+_.5svw_+_.5svh)] capitalize font-[600] text-black text-center'>09011144551, 09122788372</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </footer>
             </div>
         </div>

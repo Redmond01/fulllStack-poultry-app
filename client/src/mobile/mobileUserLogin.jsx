@@ -79,14 +79,14 @@ const MobileUserLogin = () => {
                                 <div className='w-full h-[20%] flex justify-center items-center'>
                                     <h3 className='text-[calc(1px_+_2svw_+_2svh)] font-[700] capitalize font-default'>signIn account</h3>
                                 </div>
-                                <div className='w-full h-[20%] flex items-center '>
+                                <div className='w-full h-[20%] '>
                                     <h3 className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[700] capitalize font-default w-[10%]'>email:</h3>
                                     <div className='w-[10%]'></div>
-                                    <input type="text" name="email" id="" className='bg-brown h-[40%] w-[70%] outline-none rounded-xl text-whites' />
+                                    <input type="text" name="email" id="" className='bg-brown h-[40%] w-[97%] outline-none rounded-xl text-whites' />
                                 </div>
-                                <div className='w-full h-[20%] flex items-center'>
+                                <div className='w-full h-[20%]'>
                                     <h3 className='text-[calc(1px_+_1.1svw_+_1.1svh)] font-[700] capitalize font-default'>password:</h3>
-                                    <input type="text" name="password" id="" className='bg-brown h-[40%] w-[70%] outline-none rounded-xl text-whites' />
+                                    <input type="text" name="password" id="" className='bg-brown h-[40%] w-[97%] outline-none rounded-xl text-whites' />
                                 </div>
                                 <div className='w-full h-[20%] flex justify-center items-center'>
                                     <h3 className='text-[calc(1px_+_1.1svw_+_1.1svh)] font-[700] capitalize font-default w-[30%] text-center rounded-xl bg-brown text-whites'>submit</h3>
@@ -94,25 +94,31 @@ const MobileUserLogin = () => {
                                 <div className='w-full h-[10%] px-2'>
                                     <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] font-[500] w-[55%] capitalize font-default text-brown hover:text-black cursor-pointer' onClick={handleSignIn}>dont have an account? click to sign up</h3>
                                 </div>
-                            </form> : <form className='w-[90%] h-full rounded-[1rem] border border-brown'>
-                                <div className='w-full h-[10%]'></div>
+                            </form> :
+
+                            <form className='w-[90%] h-full rounded-[1rem] border border-brown'>
                                 <div className='w-full h-[20%] flex justify-center items-center'>
                                     <h3 className='text-[calc(1px_+_2svw_+_2svh)] font-[700] capitalize font-default'>signUp account</h3>
                                 </div>
-                                <div className='w-full h-[20%] flex items-center '>
+                                <div className='w-full h-[17%] '>
+                                    <h3 className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[700] capitalize font-default w-[10%]'>username:</h3>
+                                    <div className='w-[10%]'></div>
+                                    <input type="text" name="username" id="" className='bg-brown h-[40%] w-[98%] outline-none rounded-xl text-whites' />
+                                </div>
+                                <div className='w-full h-[17%] '>
                                     <h3 className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[700] capitalize font-default w-[10%]'>email:</h3>
                                     <div className='w-[10%]'></div>
-                                    <input type="text" name="email" id="" className='bg-brown h-[40%] w-[70%] outline-none rounded-xl text-whites' />
+                                    <input type="text" name="email" id="" className='bg-brown h-[40%] w-[98%] outline-none rounded-xl text-whites' />
                                 </div>
-                                <div className='w-full h-[20%] flex items-center'>
+                                <div className='w-full h-[17%]'>
                                     <h3 className='text-[calc(1px_+_1.1svw_+_1.1svh)] font-[700] capitalize font-default'>password:</h3>
-                                    <input type="text" name="password" id="" className='bg-brown h-[40%] w-[70%] outline-none rounded-xl text-whites' />
+                                    <input type="text" name="password" id="" className='bg-brown h-[40%] w-[98%] outline-none rounded-xl text-whites' />
                                 </div>
-                                <div className='w-full h-[20%] flex justify-center items-center'>
+                                <div className='w-full h-[17%] flex justify-center items-center'>
                                     <h3 className='text-[calc(1px_+_1.1svw_+_1.1svh)] font-[700] capitalize font-default w-[30%] text-center rounded-xl bg-brown text-whites'>submit</h3>
                                 </div>
                                 <div className='w-full h-[10%] px-2'>
-                                    <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] font-[500] w-[55%] capitalize font-default text-brown hover:text-black cursor-pointer' onClick={handleSignIn}>already have an account? click to sign in</h3>
+                                    <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] font-[500] w-[55%] capitalize font-default text-brown' onClick={handleSignIn}>already have an account? click to sign in</h3>
                                 </div>
                             </form>
                         }
@@ -120,11 +126,32 @@ const MobileUserLogin = () => {
                     <div className='w-[15%]'></div>
                 </div>
                 <div className='w-full h-[14svh]'></div>
-                <footer className='w-full h-[20svh] border border-green-600 bg-brown'>
-                    <div className='w-full h-[10%] border border-black flex justify-center items-center'>
+                <footer className='w-full h-[20svh] bg-lightBrown'>
+                    <div className='w-full h-[10%] flex justify-center items-center'>
                         <hr className='border-2 border-whites w-[90%]' />
                     </div>
-                    <div className='w-full h-[90%] border border-black'></div>
+                    <div className='w-full h-[90%] flex'>
+                        <div className='w-[40%] h-full border border-white flex justify-center items-center'>
+                            <img src={Logo} alt="img" className='w-[70%] h-auto' />
+                        </div>
+                        <div className='w-[60%] h-full border border-white'>
+                            <div className='w-full h-[32%] border border-white'>
+                                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+                            </div>
+                            <div className='w-full h-[32%] border border-white'>
+                                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+                            </div>
+                            <div className='w-full h-[32%] border border-white'>
+                                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+                            </div>
+                        </div>
+                    </div>
                 </footer>
             </div>
         </div>

@@ -155,11 +155,32 @@ const MobileAbout = () => {
           </div>
           <div className='w-[10%] h-full'></div>
         </div>
-        <footer className='w-full h-[20svh] border border-green-600 bg-brown'>
-          <div className='w-full h-[10%] border border-black flex justify-center items-center'>
+        <footer className='w-full h-[20svh] bg-lightBrown'>
+          <div className='w-full h-[10%] flex justify-center items-center'>
             <hr className='border-2 border-whites w-[90%]' />
           </div>
-          <div className='w-full h-[90%] border border-black'></div>
+          <div className='w-full h-[90%] flex'>
+            <div className='w-[40%] h-full border border-white flex justify-center items-center'>
+              <img src={Logo} alt="img" className='w-[70%] h-auto' />
+            </div>
+            <div className='w-[60%] h-full border border-white'>
+              <div className='w-full h-[32%] border border-white'>
+                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+              </div>
+              <div className='w-full h-[32%] border border-white'>
+                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+              </div>
+              <div className='w-full h-[32%] border border-white'>
+                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
+                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
+              </div>
+            </div>
+          </div>
         </footer>
       </div>
     </div>

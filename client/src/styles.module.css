@@ -80,10 +80,7 @@
     z-index: 999;
     width: 40%;
     height: 50svh;
-    transition: all;
-    transition-duration: .5s;
-    transition: ease;
-    position: absolute;
+    position: fixed;
     animation-duration: .5s;
     animation-name: mobileSideBarOn;
 }
@@ -94,9 +91,6 @@
     z-index: 999;
     width: 40%;
     height: 50svh;
-    transition: all;
-    transition-duration: .5s;
-    transition: ease;
     position: fixed;
     animation-duration: .5s;
     animation-name: mobileSideBarOff;
@@ -104,25 +98,17 @@
 
 @keyframes mobileSideBarOn {
     from {
-        top: 0%;
-        right: -100%
+        transform: translateX(100%);
     }
 
     to {
-        top: 0%;
-        right: 0%;
+        transform: translateX(10%);
     }
 }
 
 @keyframes mobileSideBarOff {
 
-    from {
-        top: 0%;
-        right: 0%;
-    }
-
     to {
-        top: 0%;
-        right: -100%
+        transform: translateX(100%);
     }
 }

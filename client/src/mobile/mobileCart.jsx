@@ -52,7 +52,7 @@ const MobileCart = () => {
     }
     return (
         <div className='sm:block md:hidden lg:hidden'>
-            <div className='w-full h-[200svh] bg-whites relative'>
+            <div className='w-full h-[100svh] bg-whites relative'>
                 <div className='w-full h-[10svh] bg-whites flex justify-between items-center px-[2rem]'>
                     <img src={Logo} alt="img" className='w-[10%] h-auto' />
                     <FaAlignJustify className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
