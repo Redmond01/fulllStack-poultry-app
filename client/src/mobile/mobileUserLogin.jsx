@@ -38,8 +38,8 @@ const MobileUserLogin = () => {
         <div className='sm:block md:hidden lg:hidden'>
             <div className='w-full h-[100svh] bg-whites relative'>
                 <div className='w-full h-[10svh] bg-whites flex justify-between items-center px-[2rem]'>
-                    <img src={Logo} alt="img" className='w-[10%] h-auto' />
-                    <FaAlignJustify className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
+                    <Link to={'/'} className='w-[90%]' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
+                    <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
                 </div>
                 <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} transition-all duration-500 bg-slate-400`}>
                     <div className='w-full h-[20%] flex justify-end items-center p-2'>

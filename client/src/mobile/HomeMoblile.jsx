@@ -31,8 +31,8 @@ const HomeMbobile = () => {
     <div className='sm:block md:hidden lg:hidden'>
       <div className='w-full h-[196%vh] bg-whites relative'>
         <div className='w-full h-[10svh] bg-whites flex justify-between items-center px-[2rem]'>
-          <img src={Logo} alt="img" className='w-[10%] h-auto' />
-          <FaAlignJustify className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
+          <Link to={'/'} className='w-[90%]' onClick={function(){dispatch(updateMobileSideBar(!sideBar))}}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
+          <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
         </div>
         <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} bg-slate-400`}>
           <div className='w-full h-[20%] flex justify-end items-center p-2'>
@@ -72,7 +72,7 @@ const HomeMbobile = () => {
                 velit mollit. Exercitation veniam consequat.</h3>
             </div>
             <Link to={'/marketplace'}><div className='w-full h-[15%] px-[2rem] flex items-center'>
-              <h3 className='w-[20svw] h-[50%] bg-brown text-whites rounded-full flex justify-center items-center text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-[500]' onClick={function(){dispatch(updateMobileSideBar(!sideBar))}}>view store</h3>
+              <h3 className='w-[20svw] h-[50%] bg-brown text-whites rounded-full flex justify-center items-center text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-[500]' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}>view store</h3>
             </div></Link>
           </div>
         </div>
@@ -121,7 +121,7 @@ const HomeMbobile = () => {
               <h3 className='text-[calc(1px_+_2.0svw_+_2.0svh)] font-default font-[700] capitalize'>fresh egg and hen farm</h3>
               <h3 className='w-[70%] text-slate-500 text-[calc(1px_+_.4svw_+_.4svh)] capitalize font-default font-[400]'>Amet minim mollit non deserunt ullamco est sit aliqua
                 dolor do amet sint. Velit officia consequat..</h3>
-              <Link to={'/marketplace'} className='w-[15svw] h-[3svh] rounded-full flex justify-center items-center bg-brown'  onClick={function(){dispatch(updateMobileSideBar(!sideBar))}}>
+              <Link to={'/marketplace'} className='w-[15svw] h-[3svh] rounded-full flex justify-center items-center bg-brown' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}>
                 <h3 className='text-[calc(1px_+_.6svw_+_.6svh)] capitalize font-default font-[500] text-white'>view store</h3>
               </Link>
             </div>

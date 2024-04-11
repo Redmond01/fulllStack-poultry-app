@@ -74,8 +74,8 @@ const MobileStore = () => {
         <div className='sm:block md:hidden lg:hidden'>
             <div className='w-full h-[190svh] bg-whites relative'>
                 <div className='w-full h-[10svh] bg-whites flex justify-between items-center px-[2rem]'>
-                    <img src={Logo} alt="img" className='w-[10%] h-auto' />
-                    <FaAlignJustify className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
+                    <Link to={'/'} className='w-[90%]' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
+                    <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
                 </div>
                 <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} transition-all duration-500 bg-slate-400`}>
                     <div className='w-full h-[20%] flex justify-end items-center p-2'>
@@ -104,10 +104,10 @@ const MobileStore = () => {
                     </div>
                 </div>
                 <div className='w-full h-[10svh] flex justify-end items-center'>
-                    <h3 className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[400] capitalize text-brown'>click the cart icon </h3>
-                    <div className='w-[50%] h-[70%] flex justify-end items-center relative  px-3'>
+                    <h3 className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[400] font-default capitalize text-brown'>click the cart icon </h3>
+                    <div className='w-[50%] h-[70%] flex justify-end items-center relative  px-4'>
                         <Link to={'/cart'}><FaCartPlus className='text-[calc(1px_+_1.8svw_+_1.8svh)] fill-black transition-all duration-[.5s]' /></Link>
-                        <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[600] absolute top-[-5%] right-[1%]'>{cartNumber}</h3>
+                        <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[600] font-default absolute top-[-5%] right-[3%]'>{cartNumber}</h3>
                     </div>
                 </div>
                 <div className='w-full h-[120svh]flex justify-center items-center'>
@@ -120,11 +120,11 @@ const MobileStore = () => {
                                     </div>
                                     <div className='w-full h-[20%] flex'>
                                         <div className='w-[80%] h-full'>
-                                            <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[500] capitalize'>desc: <span className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[700] capitalize'>{details.desc}</span> </h3>
-                                            <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[500] capitalize'>price: <span className='text-[calc(1px_+1_13svw_+1.13svh)] font-[700] capitalize'>{details.price}</span> </h3>
+                                            <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[500] font-default capitalize'>desc: <span className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[700] capitalize'>{details.desc}</span> </h3>
+                                            <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[500] font-default capitalize'>price: <span className='text-[calc(1px_+1_13svw_+1.13svh)] font-[700] capitalize'>N{details.price}</span> </h3>
                                         </div>
                                         <div className='w-[20%] h-full flex justify-center items-center bg-lightBrown rounded-s-xl'>
-                                            <h3 className='text-[calc(1px_+_2.3svw_+_2.3svh)] font-[500] capitalize w-full h-full flex justify-center items-center' onClick={() => handleCartListUpdate(details)} >+</h3>
+                                            <h3 className='text-[calc(1px_+_2.3svw_+_2.3svh)] font-[500] font-default capitalize w-full h-full flex justify-center items-center' onClick={() => handleCartListUpdate(details)} >+</h3>
                                         </div>
                                     </div>
                                 </div>
