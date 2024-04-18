@@ -106,9 +106,9 @@
     }
 }
 
-@keyframes mobileSideBarOff {
+/* @keyframes mobileSideBarOff {
 
     to {
         transform: translateX(100%);
     }
-}
+} */

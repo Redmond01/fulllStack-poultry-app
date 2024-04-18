@@ -283,7 +283,6 @@ const HomeDesktop = () => {
             </div>
           </div>
         </footer>
-
       </div>
     </div>
   )

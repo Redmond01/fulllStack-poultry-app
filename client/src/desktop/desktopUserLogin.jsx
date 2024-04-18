@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaCartPlus, FaTimes } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSignInOrSignOut, updateUserCredentials } from '../redux/desktopSlice';
-// import axios, { AxiosHeaders } from 'axios';
+import axios from 'axios';
 
 const DesktopUserLogin = () => {
   const dispatch = useDispatch()
@@ -34,21 +34,24 @@ const DesktopUserLogin = () => {
     try {
       const url = 'http://localhost:5000/login'
       const SignUserIn = await axios.post(url, userCredentials)
-      
-      const response = SignUserIn.data
-      const finalCheck = SignUserIn.headers['set-cookie']
-      if (response === 'user not found!') {
-        alert('username or password not correct signup!')
+      // const response = SignUserIn.data
+      const finalCheck = SignUserIn.data
+      // console.log(finalCheck)
+      // if (response === 'user not found!') {
+      //   alert('username or password not correct signup!')
+      // }
+      if(finalCheck){
+        console.log(finalCheck)
       }
-      if (finalCheck === 200) {
+      // if (finalCheck === 200) {
         // const userCookies = SignUserIn.headers['set-cookie']
         // console.log(userCookies)
         // if (userCookies) {
         //   document.cookie = userCookies
         //   console.log(userCookies)
         // }
-        navigationTo('/cart')
-      }
+        // navigationTo('/cart')
+      // }
     } catch (error) {
       console.log({ error: error })
     }

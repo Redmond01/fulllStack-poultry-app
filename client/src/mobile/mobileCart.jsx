@@ -17,6 +17,7 @@ const MobileCart = () => {
     })
     useEffect(function () {
         // dispatch(updateMobileSideBar(true))
+        dispatch(updateMobileSideBar(sideBar))
         const url = location.pathname
         if (url !== saveCurrentuRL.current) {
             dispatch(updateMobileSideBar(!sideBar))
@@ -57,7 +58,8 @@ const MobileCart = () => {
                     <Link to={'/'} className='w-[90%]' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
                     <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
                 </div>
-                <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} transition-all duration-500 bg-slate-400`}>
+                {/* ${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} */}
+                <div className={`transition-all duration-[.5] bg-slate-400 ${sideBar?styles.mobileSideBarOff:styles.mobileSideBarOn}`}>
                     <div className='w-full h-[20%] flex justify-end items-center p-2'>
                         <FaTimes className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
                     </div>

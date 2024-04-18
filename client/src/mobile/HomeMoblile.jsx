@@ -22,6 +22,7 @@ const HomeMbobile = () => {
     dispatch(updateMobileSideBar(!sideBar))
   }
   useEffect(function () {
+    dispatch(updateMobileSideBar(sideBar))
     const url = location.pathname
     if (url !== saveCurrentuRL) {
       dispatch(updateMobileSideBar(!sideBar))
