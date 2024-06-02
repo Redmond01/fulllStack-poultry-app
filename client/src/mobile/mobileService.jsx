@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from '../styles.module.css';
 import Logo from '../images/logo.png';
 import Bg from '../images/comp5.png'
-import { FaAlignJustify, FaTimes, FaStopwatch, FaFirstAid, FaBus } from 'react-icons/fa';
+import { FaAlignJustify, FaTimes, FaStopwatch, FaFirstAid, FaBus, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { updateMobileSideBar } from '../redux/desktopSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,8 +11,7 @@ const MobileService = () => {
   const dispatch = useDispatch()
   const location = useLocation()
 
-  const currentUrl = location.pathname
-  const saveCurrentuRL = useRef(currentUrl)
+  const saveCurrentuRL = useRef(location.pathname)
   const sideBar = useSelector(function (state) {
     return state.deskopHome.mobileSideBar
   })
@@ -20,11 +19,18 @@ const MobileService = () => {
     dispatch(updateMobileSideBar(!sideBar))
   }
   useEffect(function () {
-    dispatch(updateMobileSideBar(sideBar))
-    const url = location.pathname
-    if (url !== saveCurrentuRL) {
-      dispatch(updateMobileSideBar(!sideBar))
-    }
+    // console.log(sideBar)
+    dispatch(updateMobileSideBar(false))
+
+
+    // const url = location.pathname
+    // if (url !== saveCurrentuRL) {
+    //   dispatch(updateMobileSideBar(!sideBar))
+    // }
+    // return function(){
+    //   dispatch(updateMobileSideBar(!sideBar))
+
+    // }
   }, [])
   return (
     <div className='sm:block md:hidden lg:hidden'>
@@ -33,28 +39,28 @@ const MobileService = () => {
           <Link to={'/'} className='w-[90%]' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
           <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
         </div>
-        <div className={`${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} transition-all duration-500 bg-slate-400`}>
+        <div className={`${sideBar ? styles.mobileSideBarOn : styles.mobileSideBarOff} transition-all duration-500 bg-slate-400`}>
           <div className='w-full h-[20%] flex justify-end items-center p-2'>
             <FaTimes className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
           </div>
           <div className='w-full h-[80%] flex flex-col justify-center items-center gap-4 bg-slate-400'>
-            <Link to={'/'}>  <div className='w-full h-[24%] flex justify-center items-center'>
+            <Link to={'/'}>  <div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> home</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/marketplace'}> <div className='w-full h-[24%] flex justify-center items-center'>
+            <Link to={'/marketplace'}> <div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> marketplace</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/service'}><div className='w-full h-[24%] flex justify-center items-center'>
+            <Link to={'/service'}><div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> services</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/about'}> <div className='w-full h-[24%] flex justify-center items-start'>
+            <Link to={'/about'}> <div className='w-full h-full flex justify-center items-start'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> about us</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/login'}> <div className='w-full h-[24%] flex justify-center items-start'>
+            <Link to={'/login'}> <div className='w-full h-full flex justify-center items-start'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> login</h3>
             </div></Link>
           </div>
@@ -156,31 +162,29 @@ const MobileService = () => {
           </div>
           <div className='w-[10%] h-full'></div>
         </div>
-        <footer className='w-full h-[20svh] bg-lightBrown'>
-          <div className='w-full h-[10%] flex justify-center items-center'>
-            <hr className='border-2 border-whites w-[90%]' />
+        <div className='w-full h-[5svh]'></div>
+        <footer className='w-full h-[70svh] bg-lightBrown'>
+          <div className='w-full h-[80%]'>
+            <div className='w-full h-[33%]'>
+              <h3 className='text-[calc(1px_+_2.2svw_+_2.2svh)] capitalize font-[600] underline underline-offset-4'>head office:</h3>
+              <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] font-[600] capitalize'>address: <span className='w-[60%] text-[calc(1px_+_1.5svw_+_1.5svh)] font-[400]'> kilometer3, ilupeju rd, off alyanju estate ogun state</span></h3>
+              <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] font-[600] capitalize'>tel: <span className='w-[60%] text-[calc(1px_+_1.5svw_+_1.5svh)] font-[400]'> 09032968842</span></h3>
+            </div>
+            <div className='w-full h-[33%]'>
+              <h3 className='text-[calc(1px_+_2.2svw_+_2.2svh)] capitalize font-[600] underline underline-offset-4'>branch office:</h3>
+              <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] font-[600] capitalize'>address: <span className='w-[60%] text-[calc(1px_+_1.5svw_+_1.5svh)] font-[400]'> kilometer3, ilupeju rd, off alyanju estate ogun state</span></h3>
+              <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] font-[600] capitalize'>tel: <span className='w-[60%] text-[calc(1px_+_1.5svw_+_1.5svh)] font-[400]'> 09032968842</span></h3>
+            </div>
+            <div className='w-full h-[33%]'>
+              <h3 className='text-[calc(1px_+_2.2svw_+_2.2svh)] capitalize font-[600] underline underline-offset-4'>branch office:</h3>
+              <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] font-[600] capitalize'>address: <span className='w-[60%] text-[calc(1px_+_1.5svw_+_1.5svh)] font-[400]'> kilometer3, ilupeju rd, off alyanju estate ogun state</span></h3>
+              <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] font-[600] capitalize'>tel: <span className='w-[60%] text-[calc(1px_+_1.5svw_+_1.5svh)] font-[400]'> 09032968842</span></h3>
+            </div>
           </div>
-          <div className='w-full h-[90%] flex'>
-            <div className='w-[40%] h-full border border-white flex justify-center items-center'>
-              <img src={Logo} alt="img" className='w-[70%] h-auto' />
-            </div>
-            <div className='w-[60%] h-full border border-white'>
-              <div className='w-full h-[32%] border border-white'>
-                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
-                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
-                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
-              </div>
-              <div className='w-full h-[32%] border border-white'>
-                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
-                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
-                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
-              </div>
-              <div className='w-full h-[32%] border border-white'>
-                <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-default font-600 '>head office:</h3>
-                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
-                <h3 className='text-[calc(1px_+_.7svw_+_.7svh)] capitalize font-default font-500 '>0901125568, 0917783556</h3>
-              </div>
-            </div>
+          <div className='w-full h-[20%] flex justify-center items-center gap-[2rem]'>
+            <img src={Logo} alt="logo" className='w-[11%] ' />
+            <FaFacebook className='text-[calc(1px_+_3.5svw_+_3.5svh)] text-brown' />
+            <FaInstagram className='text-[calc(1px_+_3.5svw_+_3.5svh)] text-brown' />
           </div>
         </footer>
       </div>
