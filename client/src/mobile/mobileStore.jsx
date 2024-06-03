@@ -4,7 +4,7 @@ import Logo from '../images/logo.png';
 import Chicken from '../images/23.png';
 import { FaAlignJustify, FaTimes, FaCartPlus, FaFacebook, FaInstagram } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom';
-import { updateMobileSideBar } from '../redux/desktopSlice';
+import { updateMobileSideBar, updateSignInOrSignOut } from '../redux/desktopSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCart } from '../redux/desktopSlice';
 
@@ -38,25 +38,19 @@ export const items = [
 const MobileStore = () => {
     const dispatch = useDispatch()
     const location = useLocation()
-
     const saveCurrentuRL = useRef(location.pathname)
 
+    
     const sideBar = useSelector(function (state) {
         return state.deskopHome.mobileSideBar
     })
+
+    const curretUrl = useRef(location.pathname)
     useEffect(function () {
-        // console.log(sideBar)
-        dispatch(updateMobileSideBar(false))
-
-
-        // const url = location.pathname
-        // if (url !== saveCurrentuRL) {
-        //   dispatch(updateMobileSideBar(!sideBar))
-        // }
-        // return function(){
-        //   dispatch(updateMobileSideBar(!sideBar))
-
-        // }
+        const changeableUrl = location.pathname
+        if(changeableUrl !== curretUrl){
+            dispatch(updateMobileSideBar(true))
+        }
     }, [])
 
     const cartNumber = useSelector(function (state) {
@@ -77,7 +71,6 @@ const MobileStore = () => {
             dispatch(updateCart([...cartItems, items]))
         }
     }
-
     return (
         <div className='sm:block md:hidden lg:hidden'>
             <div className='w-full h-[190svh] bg-whites relative'>
@@ -119,7 +112,7 @@ const MobileStore = () => {
                     </div>
                 </div>
                 <div className='w-full h-[120svh]flex justify-center items-center'>
-                    <div className='w-full h-full border border-black gap-5 overflow overflow-y-scroll'>
+                    <div className='w-full h-full gap-5 overflow overflow-y-scroll'>
                         {items.map(function (details) {
                             return (
                                 <div key={details.id} className='w-full h-[50svh] rounded-xl cursor-pointer shadow-md shadow-slate-400'>

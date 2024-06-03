@@ -11,26 +11,18 @@ const MobileService = () => {
   const dispatch = useDispatch()
   const location = useLocation()
 
-  const saveCurrentuRL = useRef(location.pathname)
   const sideBar = useSelector(function (state) {
     return state.deskopHome.mobileSideBar
   })
   const handleSidebar = () => {
     dispatch(updateMobileSideBar(!sideBar))
   }
+  const curretUrl = useRef(location.pathname)
   useEffect(function () {
-    // console.log(sideBar)
-    dispatch(updateMobileSideBar(false))
-
-
-    // const url = location.pathname
-    // if (url !== saveCurrentuRL) {
-    //   dispatch(updateMobileSideBar(!sideBar))
-    // }
-    // return function(){
-    //   dispatch(updateMobileSideBar(!sideBar))
-
-    // }
+    const changeableUrl = location.pathname
+    if (changeableUrl !== curretUrl) {
+      dispatch(updateMobileSideBar(false))
+    }
   }, [])
   return (
     <div className='sm:block md:hidden lg:hidden'>

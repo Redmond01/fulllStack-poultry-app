@@ -20,21 +20,16 @@ const HomeMbobile = () => {
   const handleSidebar = () => {
     dispatch(updateMobileSideBar(!sideBar))
   }
-
-
+  
+  
+  const curretUrl = useRef(location.pathname)
   useEffect(function () {
-    // console.log(sideBar)
-    dispatch(updateMobileSideBar(true))
+    const changeableUrl = location.pathname
+    if(changeableUrl !== curretUrl){
+        dispatch(updateMobileSideBar(true))
+    }
+}, [])
 
-    // const url = location.pathname
-    // if (url !== saveCurrentuRL) {
-    //   dispatch(updateMobileSideBar(!sideBar))
-    // }
-    // return function(){
-    //   dispatch(updateMobileSideBar(!sideBar))
-
-    // }
-  }, [])
   return (
     <div className='sm:block md:hidden lg:hidden'>
       <div className='w-full h-[196%vh] bg-whites relative'>
@@ -148,9 +143,9 @@ const HomeMbobile = () => {
             </div>
             <div className='w-full h-[30%]'>
               <form action="" className='w-full h-full flex justify-center items-center'>
-                <div className='w-[90%] h-[70%] flex rounded-xl'>
+                <div className='w-full h-full flex rounded-xl'>
                   <input type="text" name="email" id="" className='w-[80%] outline-none rounded-s-xl border border-black' required />
-                  <div className='w-[20%] h-full text-[calc(1px_+_.8svw_+_.8svh)] text-whites capitalize font-[600] flex justify-center items-center border border-black rounded-e-xl bg-brown'>submit</div>
+                  <div className='w-[20%] h-full text-[calc(1px_+_1svw_+_1svh)] text-whites capitalize font-[600] flex justify-center items-center border border-black rounded-e-xl bg-brown'>submit</div>
                 </div>
               </form>
             </div>

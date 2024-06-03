@@ -10,6 +10,9 @@ import { updateMobileSideBar, updatePurchaseIncrement, updatePurchaseDecrement, 
 import { useDispatch, useSelector } from 'react-redux';
 
 const MobileCart = () => {
+
+
+
     const dispatch = useDispatch()
     const location = useLocation()
     const currentUrl = location.pathname
@@ -17,12 +20,11 @@ const MobileCart = () => {
     const sideBar = useSelector(function (state) {
         return state.deskopHome.mobileSideBar
     })
+    const curretUrl = useRef(location.pathname)
     useEffect(function () {
-        // dispatch(updateMobileSideBar(true))
-        dispatch(updateMobileSideBar(sideBar))
-        const url = location.pathname
-        if (url !== saveCurrentuRL.current) {
-            dispatch(updateMobileSideBar(!sideBar))
+        const changeableUrl = location.pathname
+        if (changeableUrl !== curretUrl) {
+            dispatch(updateMobileSideBar(true))
         }
     }, [])
 
@@ -32,6 +34,9 @@ const MobileCart = () => {
     const cartList = useSelector(function (state) {
         return state.deskopHome.cart
     });
+    const totalPriceArray = cartList.map(function (details) {
+        return details.totalPrice
+    })
     const handleSidebar = () => {
         dispatch(updateMobileSideBar(!sideBar))
     }
@@ -51,6 +56,8 @@ const MobileCart = () => {
     const handleDecreasePrice = (item) => {
         dispatch(updatePurchaseDecrement(item))
     }
+    const arrayItem = [];
+
     return (
         <div className='sm:block md:hidden lg:hidden relative'>
             <div className={`${showReceipt ? `w-full h-[100svh] bg-whites relative` : ''} `}>
@@ -149,27 +156,19 @@ const MobileCart = () => {
                                                     <h3 className='text-[calc(1px_+_1.2svw_+_1.2svh)] font-[600] font-default capitalize'> description:{details.desc}</h3>
                                                     <h3 className='text-[calc(1px_+_1.2svw_+_1.2svh)] font-[600] font-default capitalize'> price:{details.totalPrice}</h3>
                                                 </div>
-                                                {/* <div className='w-[30%] h-full'>
-                                                    <div className='w-full h-[50%] space-y-3'>
-                                                        <div className='flex flex-col gap-3'>
-                                                            <h3 className='text-[calc(1px_+_.6svw_+_.6svh)] font-[600] flex font-default justify-center items-center capitalize'> increase no of purchase </h3>
-                                                            <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] font-[600]  flex font-default justify-center items-center self-center capitalize bg-black text-white w-[20%] h-[30%] rounded-full'>{details.noOfPurchase}</h3>
-                                                        </div>
-                                                        <div className='flex justify-center items-center'>
-                                                            <h3 className='w-[50%] h-[40%] text-[calc(1px_+_1svw_+_1svh)] font-[600] flex justify-center items-center rounded-s-[2rem] cursor-pointer hover:bg-black hover:text-whites border border-black text-default' onClick={() => handleIncreasePrice(details)}>+</h3>
-                                                            <h3 className='w-[50%] h-[40%] text-[calc(1px_+_1svw_+_1svh)] font-[600] flex justify-center items-center rounded-e-[2rem] cursor-pointer hover:bg-black hover:text-whites border border-black text-default' onClick={() => handleDecreasePrice(details)}>-</h3>
-                                                        </div>
-                                                    </div>
-                                                    <div className='w-full h-[50%] flex justify-center items-center'>
-                                                        <BiTrash className='text-[calc(1px_+_2svw_+_2svh)] hover:text-red cursor-pointer' onClick={() => handleFilter(details)} />
-                                                    </div>
-                                                </div> */}
                                             </div>
                                         </div>
                                         <div className='w-full h-[.2rem]'></div>
                                     </div>
                                 )
                             })}
+                            <div className='w-full h-[10svh] flex justify-center items-center bg-brown'>
+                                <h3 className=' text-[calc(1px_+_2svw_+_2svh)] font-[600] font-default capitalize flex items-center justify-start '>total:{totalPriceArray.reduce(function(prev, next){
+                                    return prev+next
+                                })}
+
+                                </h3>
+                            </div>
                             <div className='w-full h-[20svh] top-[80%] fixed flex justify-center items-center'>
                                 <h3 className='bg-brown h-[50%] w-[90%] text-[calc(1px_+_3svw_+_3svh)] capitalize font-[700] font-default rounded-lg flex justify-center items-center'>pay now</h3>
                             </div>

@@ -19,13 +19,13 @@ const MobileAbout = () => {
   const handleSidebar = () => {
     dispatch(updateMobileSideBar(!sideBar))
   }
+  const curretUrl = useRef(location.pathname)
   useEffect(function () {
-    dispatch(updateMobileSideBar(sideBar))
-    const url = location.pathname
-    if (url === saveCurrentuRL) {
-      dispatch(updateMobileSideBar(!sideBar))
+    const changeableUrl = location.pathname
+    if(changeableUrl !== curretUrl){
+        dispatch(updateMobileSideBar(true))
     }
-  }, [])
+}, [])
   return (
     <div className='sm:block md:hidden lg:hidden'>
       <div className='w-full h-[200svh] bg-whites relative'>

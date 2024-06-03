@@ -17,12 +17,13 @@ const MobileUserLogin = () => {
     const handleSidebar = () => {
         dispatch(updateMobileSideBar(!sideBar))
     }
+    const curretUrl = useRef(location.pathname)
     useEffect(function () {
-        const url = location.pathname
-        if (url !== saveCurrentuRL) {
-            dispatch(updateMobileSideBar(!sideBar))
-        }
-    }, [])
+      const changeableUrl = location.pathname
+      if(changeableUrl !== curretUrl){
+          dispatch(updateMobileSideBar(true))
+      }
+  }, [])
 
 
 
