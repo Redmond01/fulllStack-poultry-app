@@ -124,8 +124,8 @@ const MobileStore = () => {
                                             <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[500] font-default capitalize'>desc: <span className='text-[calc(1px_+_1.3svw_+_1.3svh)] font-[700] capitalize'>{details.desc}</span> </h3>
                                             <h3 className='text-[calc(1px_+_1.8svw_+_1.8svh)] font-[500] font-default capitalize'>price: <span className='text-[calc(1px_+1_13svw_+1.13svh)] font-[700] capitalize'>N{details.price}</span> </h3>
                                         </div>
-                                        <div className='w-[20%] h-full flex justify-center items-center bg-lightBrown rounded-s-xl'>
-                                            <h3 className='text-[calc(1px_+_2.3svw_+_2.3svh)] font-[500] font-default capitalize w-full h-full flex justify-center items-center' onClick={() => handleCartListUpdate(details)} >+</h3>
+                                        <div className='w-[20%] h-full flex justify-center items-center bg-lightBrown rounded-s-xl hover:rounded-s-xl'>
+                                            <h3 className='text-[calc(1px_+_4.3svw_+_4.3svh)] font-[500] font-default capitalize w-full h-full flex justify-center items-center hover:text-whites hover:bg-brown hover:rounded-s-xl' onClick={() => handleCartListUpdate(details)} >+</h3>
                                         </div>
                                     </div>
                                 </div>

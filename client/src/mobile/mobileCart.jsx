@@ -94,7 +94,7 @@ const MobileCart = () => {
                 </div>
                 <div className='w-full h-[5svh] flex '>
                     <h3 className='w-[80%] h-full text-[calc(1px_+_1.2svw_+_1.2svh)] font-[600] uppercase flex justify-center  text-brown'>itesms in your cart</h3>
-                    <h3 className='w-[20%] h-[70%] text-[calc(1px_+_.8svw_+_.8svh)] font-[600] uppercase flex justify-center items-center px-[1.8rem] rounded-lg bg-brown text-whites' onClick={handlePurchase}>checkout</h3>
+                    <h3 className={`${cartList.length>0?'w-[20%] h-[70%] text-[calc(1px_+_.8svw_+_.8svh)] font-[600] uppercase flex justify-center items-center px-[1.8rem] rounded-lg bg-brown text-whites':'hidden'}`} onClick={handlePurchase}>checkout</h3>
                 </div>
                 {cartList.map(function (details) {
                     return (
