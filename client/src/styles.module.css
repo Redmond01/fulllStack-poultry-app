@@ -58,7 +58,7 @@
     top: 10%;
     animation-name: receiptOn;
     animation-duration: .5s;
-    background-color: grey;
+    background-color: #EDD8BD;
     line-height: 10%;
 }
 
@@ -79,7 +79,7 @@
     right: 0%;
     z-index: 999;
     width: 40%;
-    height: 50svh;
+    height: 55svh;
     position: fixed;
     animation-duration: .5s;
     animation-name: mobileSideBarOn;

@@ -8,6 +8,8 @@ import { BiTrash } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
 import { updateMobileSideBar, updatePurchaseIncrement, updatePurchaseDecrement, filterCart, updateReciept } from '../redux/desktopSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+// import {got} from 'got'
 
 const MobileCart = () => {
 
@@ -56,8 +58,30 @@ const MobileCart = () => {
     const handleDecreasePrice = (item) => {
         dispatch(updatePurchaseDecrement(item))
     }
-    const arrayItem = [];
-
+    const handlePaymentSystem = async () => {
+        FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-084e313fdf72727a66ce350044eae2ac-X",
+            tx_ref: "titanic-48981487343MDI0NzMx",
+            amount: totalPriceArray.reduce(function(prev, next){return prev+next}),
+            currency: "NGN",
+            payment_options: "card, mobilemoneyghana, ussd",
+            redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
+            meta: {
+                consumer_id: 23,
+                consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+                email: "rose@unsinkableship.com",
+                phone_number: "08102909304",
+                name: "Rose DeWitt Bukater",
+            },
+            customizations: {
+                title: "The Titanic Store",
+                description: "Payment for an awesome cruise",
+                logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+            }
+        });
+    }
     return (
         <div className='sm:block md:hidden lg:hidden relative'>
             <div className={`${showReceipt ? `w-full h-[100svh] bg-whites relative` : ''} `}>
@@ -65,7 +89,6 @@ const MobileCart = () => {
                     <Link to={'/'} className='w-[90%]' onClick={function () { dispatch(updateMobileSideBar(!sideBar)) }}> <img src={Logo} alt="img" className='w-[15%] h-auto' /></Link>
                     <FaAlignJustify className=' w-[10%] text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
                 </div>
-                {/* ${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn} */}
                 <div className={`transition-all duration-[.5] bg-slate-400 ${sideBar ? styles.mobileSideBarOff : styles.mobileSideBarOn}`}>
                     <div className='w-full h-[20%] flex justify-end items-center p-2'>
                         <FaTimes className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
@@ -94,7 +117,7 @@ const MobileCart = () => {
                 </div>
                 <div className='w-full h-[5svh] flex '>
                     <h3 className='w-[80%] h-full text-[calc(1px_+_1.2svw_+_1.2svh)] font-[600] uppercase flex justify-center  text-brown'>itesms in your cart</h3>
-                    <h3 className={`${cartList.length>0?'w-[20%] h-[70%] text-[calc(1px_+_.8svw_+_.8svh)] font-[600] uppercase flex justify-center items-center px-[1.8rem] rounded-lg bg-brown text-whites':'hidden'}`} onClick={handlePurchase}>checkout</h3>
+                    <h3 className={`${cartList.length > 0 ? 'w-[20%] h-[70%] text-[calc(1px_+_.8svw_+_.8svh)] font-[600] uppercase flex justify-center items-center px-[1.8rem] rounded-lg bg-brown text-whites' : 'hidden'}`} onClick={handlePurchase}>checkout</h3>
                 </div>
                 {cartList.map(function (details) {
                     return (
@@ -163,14 +186,14 @@ const MobileCart = () => {
                                 )
                             })}
                             <div className='w-full h-[10svh] flex justify-center items-center bg-brown'>
-                                <h3 className=' text-[calc(1px_+_2svw_+_2svh)] font-[600] font-default capitalize flex items-center justify-start '>total:{totalPriceArray.reduce(function(prev, next){
-                                    return prev+next
+                                <h3 className=' text-[calc(1px_+_2svw_+_2svh)] font-[600] font-default capitalize flex items-center justify-start '>total:{totalPriceArray.reduce(function (prev, next) {
+                                    return prev + next
                                 })}
 
                                 </h3>
                             </div>
                             <div className='w-full h-[20svh] top-[80%] fixed flex justify-center items-center'>
-                                <h3 className='bg-brown h-[50%] w-[90%] text-[calc(1px_+_3svw_+_3svh)] capitalize font-[700] font-default rounded-lg flex justify-center items-center'>pay now</h3>
+                                <h3 className='bg-brown h-[50%] w-[90%] text-[calc(1px_+_3svw_+_3svh)] capitalize font-[700] font-default rounded-lg flex justify-center items-center' onClick={handlePaymentSystem}>pay now</h3>
                             </div>
                         </div>
 

@@ -3,7 +3,8 @@ import Styles from '../styles.module.css'
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
 import { FaUser, FaCartPlus, FaTimes } from 'react-icons/fa';
-import { BiTrash } from 'react-icons/bi'
+import { MdOutlineRemoveShoppingCart } from 'react-icons/md'
+import { BiTrash } from 'react-icons/bi';
 import { useSelector, useDispatch } from 'react-redux';
 import { updatePurchaseDecrement, updatePurchaseIncrement, updateReciept, filterCart } from '../redux/desktopSlice';
 import { useLocation } from 'react-router-dom';
@@ -22,15 +23,15 @@ const DesktopCart = () => {
     const cartList = useSelector(function (state) {
         return state.deskopHome.cart
     });
-    let list = useSelector(function (state) {
-        return state.deskopHome.list
-    });
     const cartNumber = useSelector(function (state) {
         return state.deskopHome.cart.length
     });
     const showReceipt = useSelector(function (state) {
         return state.deskopHome.reciept
     });
+    const totalPriceArray = cartList.map(function (details) {
+        return details.totalPrice
+    })
 
     const handleIncreasePrice = (item) => {
         dispatch(updatePurchaseIncrement(item))
@@ -49,13 +50,64 @@ const DesktopCart = () => {
         dispatch(filterCart(findOne))
     }
 
+    const handlePaymentSystem = async () => {
+        FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-084e313fdf72727a66ce350044eae2ac-X",
+            tx_ref: "titanic-48981487343MDI0NzMx",
+            amount: totalPriceArray.reduce(function (prev, next) { return prev + next }),
+            currency: "NGN",
+            payment_options: "card, mobilemoneyghana, ussd",
+            redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
+            meta: {
+                consumer_id: 23,
+                consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+                email: "rose@unsinkableship.com",
+                phone_number: "08102909304",
+                name: "Rose DeWitt Bukater",
+            },
+            customizations: {
+                title: "The Titanic Store",
+                description: "Payment for an awesome cruise",
+                logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+            }
+        });
+    }
     return (
         <div className='sm:hidden md:hidden lg:block selection:bg-brown'>
             <div className='w-full h-[155svh]  relative'>
                 <div className={`${showReceipt ? Styles.Truereciept : 'hidden'} transition-all duration-500 `}>
-                    <FaTimes onClick={handlePurchase} className='text-[calc(1px_+_1.5svw_+_1.5svh)] cursor-pointer top-70 right-0 absolute border border-black' />
+                    <div className='w-full h-[10%] flex justify-end items-center'>
+                        <FaTimes onClick={handlePurchase} className='text-[calc(1px_+_1.5svw_+_1.5svh)] cursor-pointer top-70 right-0 absolute' />
+                    </div>
+                    <div className='w-full h-[80%] overflow-scroll overflow-y-scroll font-[700]'>
+                        {cartList.map(function (details) {
+                            return (
+                                <div key={details.id} className='w-full h-[20svh] border border-black flex bg-brown'>
+                                    <div className='w-[30%] h-full '></div>
+                                    <div className='w-[70%] h-full flex justify-evenly outline-black outline outline-1'>
+                                        <div className='w-[70%] h-full flex flex-col justify-evenly '>
+                                            <h3 className='text-[calc(1px_+_1svw_+_1svh)] font-[600] font-default'> item name:{details.name}</h3>
+                                            <h3 className='text-[calc(1px_+_1svw_+_1svh)] font-[600] font-default'> description:{details.desc}</h3>
+                                            <h3 className='text-[calc(1px_+_1svw_+_1svh)] font-[600] font-default'> price:{details.totalPrice}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className='w-[10svw] h-[10svh] border border-white absolute top-[70%] right-5 bg-lightBrown flex flex-col rounded-[1rem]'>
+                        <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[700] w-full h-[50%] flex items-center justify-center'>total price</h3>
+                        <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-[500] w-full h-[50%] flex items-center justify-center text-white font-default'>N{totalPriceArray.reduce(function (prev, next) { return prev + next })}</h3>
+                    </div>
+                    <div className='w-full h-[10%] bg-lightBrown flex justify-center items-center'>
+                        <div className='w-[30%] h-full cursor-pointer bg-brown flex justify-center items-center rounded-lg'>
+                            <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[600] text-whites' onClick={handlePaymentSystem}>pay now</h3>
+                        </div>
+                    </div>
                 </div>
-                <div className={`${showReceipt ? ' opacity-20 w-full h-[15svh] bg-whites flex' : 'w-full h-[15svh] bg-whites flex'} transition-all duration-500`}>
+                <div className={`${showReceipt ? ' opacity-20 filter blur-[3rem] w-full h-[15svh] bg-whites flex' : 'w-full h-[15svh] bg-whites flex'} transition-all duration-500`}>
                     <div className='w-[30%] h-full flex justify-center items-center'>
                         <div className='w-[15%] h-[70%]'></div>
                         <div className='w-[45%] h-[70%] flex justify-end items-center'>
@@ -89,10 +141,14 @@ const DesktopCart = () => {
                 </div>
                 <div className='w-full h-[5svh] flex '>
                     <h3 className='w-[85%] h-full text-[calc(1px_+_1svw_+_1svh)] font-[600] uppercase flex justify-center  text-brown'>itesms in your cart</h3>
-                    <h3 className='w-[15%] h-full text-[calc(1px_+_1svw_+_1svh)] font-[600] uppercase flex justify-center px-[2rem] rounded-[2rem] bg-brown text-whites hover:bg-black cursor-pointer' onClick={handlePurchase}>purchase</h3>
+                    <h3 className={`${!showReceipt ? 'w-[15%] h-full text-[calc(1px_+_1svw_+_1svh)] font-[600] uppercase flex justify-center px-[2rem] rounded-[2rem] bg-brown text-whites hover:bg-black cursor-pointer' : 'hidden'} ${cartList.length === 0 ? 'hidden' : ''} `} onClick={handlePurchase}>purchase</h3>
                 </div>
                 <br />
-                <div className={`${showReceipt ? 'w-full h-[70svh] overflow-scroll overflow-y-scroll space-y-3 opacity-20' : 'w-full h-[70svh]  overflow-scroll overflow-y-scroll space-y-3'} transition-all duration-500`}>
+                <div className={`${showReceipt ? 'w-full h-[70svh] overflow-scroll overflow-y-scroll space-y-3 opacity-20 filter blur-[3rem]' : 'w-full h-[70svh]  overflow-scroll overflow-y-scroll space-y-3'} transition-all duration-500`}>
+                    <div className={`${cartList.length === 0 ? 'w-full h-full justify-center items-center flex flex-col' : 'hidden'}`}>
+                        <MdOutlineRemoveShoppingCart className='text-[calc(1px_+_13svw_+_13svh)] fill-brown' />
+                        <h3 className='w-[70%] text-brown font-[500] flex justify-center items-center'>you have not selected any item(s) yet, kindly pick some to the cart.</h3>
+                    </div>
                     {cartList.map(function (details) {
                         return (
                             <div key={details.id} className='w-full h-[30svh] flex bg-lightBrown border border-black'>

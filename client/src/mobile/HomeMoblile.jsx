@@ -42,23 +42,23 @@ const HomeMbobile = () => {
             <FaTimes className='text-[calc(1px_+_2.5svw_+_2.5svh)] text-black' onClick={handleSidebar} />
           </div>
           <div className='w-full h-[80%] flex flex-col justify-center items-center gap-4 bg-slate-400'>
-            <Link to={'/'}>  <div className='w-full h-full flex justify-center items-center'>
+            <Link to={'/'} className='h-[20%]'><div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> home</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/marketplace'}> <div className='w-full h-full flex justify-center items-center'>
+            <Link to={'/marketplace'} className='h-[20%]'><div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> marketplace</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/service'}><div className='w-full h-full flex justify-center items-center'>
+            <Link to={'/service'} className='h-[20%]'><div className='w-full h-full flex justify-center items-center'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> services</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/about'}> <div className='w-full h-full flex justify-center items-start'>
+            <Link to={'/about'} className='h-[20%]'><div className='w-full h-full flex justify-center items-start'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> about us</h3>
             </div></Link>
             <hr className='border-2 border-whites w-full' />
-            <Link to={'/login'}> <div className='w-full h-full flex justify-center items-start'>
+            <Link to={'/login'} className='h-[20%]'><div className='w-full h-full flex justify-center items-start'>
               <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> login</h3>
             </div></Link>
           </div>
