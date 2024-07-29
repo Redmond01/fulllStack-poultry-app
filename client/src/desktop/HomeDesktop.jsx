@@ -60,9 +60,9 @@ const HomeDesktop = () => {
           </Link>
         </div>
         <div className='w-[20%] h-full flex justify-center items-center'>
-          <div className='w-[50%] h-[70%] flex justify-center items-center'>
+          {/* <div className='w-[50%] h-[70%] flex justify-center items-center'>
             <Link to={'/login'}><FaUser className='text-[calc(1px_+_.8svw_+_.8svh)] fill-black  hover:cursor-pointer hover:text-[calc(1px_+_.85svw_+_.85svh)] hover:fill-brown transition-all duration-[.5s]' /></Link>
-          </div>
+          </div> */}
           <div className='w-[50%] h-[70%] flex justify-center items-center relative'>
             <Link to={'/cart'}><FaCartPlus className='text-[calc(1px_+_.8svw_+_.8svh)] fill-black  hover:cursor-pointer hover:text-[calc(1px_+_.85svw_+_.85svh)] hover:fill-brown transition-all duration-[.5s]' /></Link>
             <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] font-[600] absolute top-[20%] right-[35%]'>{cartNumber}</h3>
@@ -249,11 +249,11 @@ const HomeDesktop = () => {
             </div>
             <div className='w-[70%]'>
               <div className='w-full h-[20%] flex justify-center items-center '>
-                <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[600] text-black'>our office adresses</h3>
+                <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] uppercase font-[700] text-black'>our office adresses</h3>
               </div>
               <div className='w-full h-[80%] flex justify-center items-center'>
                 <div className='w-[32%] h-full'>
-                  <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[600] text-black text-center'>head office</h3>
+                  <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[700] text-black text-center '>head office</h3>
                   <div className='w-full h-[10%]'></div>
                   <h3 className='text-[calc(1px_+_1svw_+_1svh)] capitalize font-[600] text-black text-center'>Address</h3>
                   <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
@@ -262,7 +262,7 @@ const HomeDesktop = () => {
                   <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>09011144551, 09122788372</h3>
                 </div>
                 <div className='w-[32%] h-full'>
-                  <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[600] text-black text-center'>branch office</h3>
+                  <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[700] text-black text-center '>branch office</h3>
                   <div className='w-full h-[10%]'></div>
                   <h3 className='text-[calc(1px_+_1svw_+_1svh)] capitalize font-[600] text-black text-center'>Address</h3>
                   <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>
@@ -271,7 +271,7 @@ const HomeDesktop = () => {
                   <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black text-center'>09011144551, 09122788372</h3>
                 </div>
                 <div className='w-[32%] h-full'>
-                  <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[600] text-black text-center'>branch office</h3>
+                  <h3 className='text-[calc(1px_+_1svw_+_1svh)] uppercase font-[700] text-black text-center '>branch office</h3>
                   <div className='w-full h-[10%]'></div>
                   <h3 className='text-[calc(1px_+_1svw_+_1svh)] capitalize font-[600] text-black text-center'>Address</h3>
                   <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] capitalize font-[600] text-black '>kilometer3, ilupeju rd, off alyanju estate ogun state</h3>

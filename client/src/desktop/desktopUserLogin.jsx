@@ -100,9 +100,9 @@ const DesktopUserLogin = () => {
             </Link>
           </div>
           <div className='w-[20%] h-full flex justify-center items-center'>
-            <div className='w-[50%] h-[70%] flex justify-center items-center'>
+            {/* <div className='w-[50%] h-[70%] flex justify-center items-center'>
               <Link to={'/login'}><FaUser className='text-[calc(1px_+_.8svw_+_.8svh)] fill-black  hover:cursor-pointer hover:text-[calc(1px_+_.85svw_+_.85svh)] hover:fill-brown transition-all duration-[.5s]' /></Link>
-            </div>
+            </div> */}
             <div className='w-[50%] h-[70%] flex justify-center items-center relative'>
               <Link to={'/cart'}><FaCartPlus className='text-[calc(1px_+_.8svw_+_.8svh)] fill-black  hover:cursor-pointer hover:text-[calc(1px_+_.85svw_+_.85svh)] hover:fill-brown transition-all duration-[.5s]' /></Link>
               <h3 className='text-[calc(1px_+_.8svw_+_.8svh)] font-[600] absolute top-[20%] right-[35%]'>{cartNumber}</h3>

@@ -71,14 +71,16 @@ const MobileCart = () => {
                 consumer_mac: "92a3-912ba-1192a",
             },
             customer: {
-                email: "rose@unsinkableship.com",
-                phone_number: "08102909304",
+                email: "alagbakafarms@gmail.com",
+                phone_number: "08132968842",
                 name: "Rose DeWitt Bukater",
             },
             customizations: {
-                title: "The Titanic Store",
-                description: "Payment for an awesome cruise",
-                logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+                title: "ALAGBAKA FARMS",
+                description: "Payment for item purchased",
+                logo:Logo
+                // logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+
             }
         });
     }
@@ -109,10 +111,10 @@ const MobileCart = () => {
                         <Link to={'/about'}> <div className='w-full h-full flex justify-center items-start'>
                             <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> about us</h3>
                         </div></Link>
-                        <hr className='border-2 border-whites w-full' />
+                        {/* <hr className='border-2 border-whites w-full' />
                         <Link to={'/login'}> <div className='w-full h-full flex justify-center items-start'>
                             <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] capitalize font-default font-[400] text-whites'> login</h3>
-                        </div></Link>
+                        </div></Link> */}
                     </div>
                 </div>
                 <div className='w-full h-[5svh] flex '>
@@ -123,8 +125,8 @@ const MobileCart = () => {
                     return (
                         <div>
                             <div key={details.id} className='w-full h-[20svh] flex bg-lightBrown'>
-                                <div className='w-[25%] h-full'>
-                                    <img src={Chicken} alt="chicken" />
+                                <div className='w-[25%] h-full flex justify-center items-center'>
+                                    <img src={details.img} alt="chicken" className='h-[70%] w-auto' />
                                 </div>
                                 <div className='w-[75%] h-full flex justify-evenly'>
                                     <div className='w-[70%] h-full flex flex-col justify-evenly '>
@@ -170,8 +172,8 @@ const MobileCart = () => {
                                 return (
                                     <div>
                                         <div key={details.id} className='w-full h-[20svh] flex bg-lightBrown'>
-                                            <div className='w-[25%] h-full'>
-                                                <img src={Chicken} alt="chicken" />
+                                            <div className='w-[25%] h-full flex justify-center items-center'>
+                                                <img src={details.img} alt="chicken" className='h-[80%] w-auto' />
                                             </div>
                                             <div className='w-[75%] h-full flex justify-evenly'>
                                                 <div className='w-[70%] h-full flex flex-col justify-evenly '>
