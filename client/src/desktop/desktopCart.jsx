@@ -190,8 +190,8 @@ const DesktopCart = () => {
                             <img src={Logo} alt="" className='w-[50%] h-auto' />
                         </div>
                         <div className='w-[70%]'>
-                            <div className='w-full h-[20%] flex justify-center items-center border-2 border-black'>
-                                <h3 className='text-[calc(1px_+_2.5svw_+_2.5svh)] uppercase font-[900] text-black '>our office adresses</h3>
+                            <div className='w-full h-[20%] flex justify-center items-center'>
+                                <h3 className='text-[calc(1px_+_1.5svw_+_1.5svh)] uppercase font-[600] text-black '>our office adresses</h3>
                             </div>
                             <div className='w-full h-[80%] flex justify-center items-center'>
                                 <div className='w-[32%] h-full'>

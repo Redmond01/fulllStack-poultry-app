@@ -3,7 +3,8 @@ import Styles from '../styles.module.css'
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
 import { FaUser, FaCartPlus, FaPinterest, FaLinkedin, FaTwitter, FaTimes } from 'react-icons/fa';
-import { BiTrash } from 'react-icons/bi'
+import { BiTrash } from 'react-icons/bi';
+import {MdOutlineRemoveShoppingCart} from 'react-icons/md'
 import { useSelector, useDispatch } from 'react-redux';
 import { updatePurchaseDecrement, updatePurchaseIncrement, updateReciept, filterCart } from '../redux/desktopSlice';
 import { useLocation } from 'react-router-dom';
@@ -39,21 +40,48 @@ const TabletCart = () => {
     const handleDecreasePrice = (item) => {
         dispatch(updatePurchaseDecrement(item))
     }
-    const handlePurchase = () => {
-        dispatch(updateReciept(!showReceipt))
-    }
+
     const handleFilter = (item) => {
         const findOne = cartList.filter(function (details) {
             return details.id !== item.id
         })
         dispatch(filterCart(findOne))
     }
+    const totalPriceArray = cartList.map(function(details){
+        return details.totalPrice
+    })
+    const handlePaymentSystem = async () => {
+        FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-084e313fdf72727a66ce350044eae2ac-X",
+            tx_ref: "titanic-48981487343MDI0NzMx",
+            amount: totalPriceArray.reduce(function(prev, next){return prev+next}),
+            currency: "NGN",
+            payment_options: "card, mobilemoneyghana, ussd",
+            redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
+            meta: {
+                consumer_id: 23,
+                consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+                email: "alagbakafarms@gmail.com",
+                phone_number: "08132968842",
+                name: "Rose DeWitt Bukater",
+            },
+            customizations: {
+                title: "ALAGBAKA FARMS",
+                description: "Payment for item purchased",
+                logo:Logo
+                // logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+
+            }
+        });
+    }
     return (
         <div className='sm:hidden md:block lg:hidden selection:bg-brown'>
             <div className='w-full h-[107svh]  relative'>
-                <div className={`${showReceipt ? Styles.Truereciept : 'hidden'} transition-all duration-500 `}>
-                    <FaTimes onClick={handlePurchase} className='text-[calc(1px_+_1.5svw_+_1.5svh)] cursor-pointer top-70 right-0 absolute border border-black' />
-                </div>
+                {/* <div className={`${showReceipt ? Styles.Truereciept : 'hidden'} transition-all duration-500 `}>
+                    <FaTimes className='text-[calc(1px_+_1.5svw_+_1.5svh)] cursor-pointer top-70 right-0 absolute border border-black' />
+                </div> */}
 
 
 
@@ -81,9 +109,9 @@ const TabletCart = () => {
                         </Link>
                     </div>
                     <div className='w-[20%] h-full flex justify-center items-center'>
-                        <div className='w-[50%] h-[70%] flex justify-center items-center'>
+                        {/* <div className='w-[50%] h-[70%] flex justify-center items-center'>
                             <Link to={'/login'}> <FaUser className='text-[calc(1px_+_.65svw_+_.65svh)] fill-black  hover:cursor-pointer hover:text-[calc(1px_+_.69svw_+_.69svh)] hover:fill-brown transition-all duration-[.5s]' /></Link>
-                        </div>
+                        </div> */}
                         <div className='w-[50%] h-[70%] flex justify-center items-center relative'>
                             <Link to={'/cart'}><FaCartPlus className='text-[calc(1px_+_.65svw_+_.65svh)] fill-black  hover:cursor-pointer hover:text-[calc(1px_+_.69svw_+_.69svh)] hover:fill-brown transition-all duration-[.5s]' /></Link>
                             <h3 className='text-[calc(1px_+_.65svw_+_.65svh)] font-[600] absolute top-[20%] right-[35%]'>{cartNumber}</h3>
@@ -93,14 +121,16 @@ const TabletCart = () => {
 
                 <div className='w-full h-[3svh] flex '>
                     <h3 className='w-[85%] h-full text-[calc(1px_+_.6svw_+_.6svh)] font-[600] uppercase flex justify-center  text-brown'>itesms in your cart</h3>
-                    <h3 className='w-[15%] h-full text-[calc(1px_+_.6svw_+_.6svh)] font-[600] uppercase flex justify-center items-center px-[2rem] rounded-[2rem] bg-brown text-whites hover:bg-black cursor-pointer' onClick={handlePurchase}>purchase</h3>
+                    <h3 className='w-[15%] h-full text-[calc(1px_+_.6svw_+_.6svh)] font-[600] uppercase flex justify-center items-center px-[2rem] rounded-[2rem] bg-brown text-whites hover:bg-black cursor-pointer' onClick={handlePaymentSystem}>purchase</h3>
                 </div>
                 <br />
                 <div className={`${showReceipt ? 'w-full h-[70svh] overflow-scroll overflow-y-scroll space-y-3 opacity-20' : 'w-full h-[70svh]  overflow-scroll overflow-y-scroll space-y-3'} transition-all duration-500`}>
                     {cartList.map(function (details) {
                         return (
                             <div key={details.id} className='w-full h-[15svh] flex bg-lightBrown border border-black'>
-                                <div className='w-[40%] h-full '></div>
+                                <div className='w-[40%] h-full flex justify-center items-center'>
+                                    <img src={details.img} alt="img" className='h-[80%] w-auto' />
+                                </div>
                                 <div className='w-[60%] h-full flex justify-evenly outline-black outline outline-1'>
                                     <div className='w-[70%] h-full flex flex-col justify-evenly '>
                                         <h3 className='text-[calc(1px_+_.6svw_+_.6svh)] font-[400] font-default'> item name:{details.name}</h3>
@@ -126,6 +156,10 @@ const TabletCart = () => {
                             </div>
                         )
                     })}
+                    <div className={`${cartList.length === 0 ? 'w-full h-full justify-center items-center flex flex-col' : 'hidden'}`}>
+                        <MdOutlineRemoveShoppingCart className='text-[calc(1px_+_13svw_+_13svh)] fill-brown' />
+                        <h3 className='w-[70%] text-brown font-[500] flex justify-center items-center'>you have not selected any item(s) yet, kindly pick some to the cart.</h3>
+                    </div>
                 </div>
                 <footer className='w-full h-[20svh] bg-lightBrown'>
                     <div className='w-full h-[10%] flex justify-center items-center'>
